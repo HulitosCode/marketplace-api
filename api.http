@@ -1,0 +1,9 @@
+### Criar novo usuário
+POST http://localhost:3333/user
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john@gmail.com",
+  "password": "123456"
+}

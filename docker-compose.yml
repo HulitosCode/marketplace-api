@@ -1,0 +1,22 @@
+
+services:
+  db:
+    image: postgres:15
+    container_name: marketplace_db
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: marketplace
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - backend
+
+volumes:
+  postgres_data:
+
+networks:
+  backend:
