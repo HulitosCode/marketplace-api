@@ -42,6 +42,7 @@ export const createUser = async (req: Request, res: Response) => {
       },
     },
     select: {
+      id: true,
       name: true,
       email: true,
       Access: {

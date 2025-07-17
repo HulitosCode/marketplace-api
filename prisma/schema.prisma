@@ -13,6 +13,7 @@ model User {
   name      String
   email     String   @unique
   password  String
+  store     Store[]
   accessId  String?
   Access    Access?  @relation(fields: [accessId], references: [id])
   createdAt DateTime @default(now())
@@ -22,33 +23,27 @@ model User {
 model Access {
   id        String   @id @default(uuid())
   name      String   @unique
-  users      User[]
+  users     User[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
 model Product {
-  id          String   @id @default(uuid())
-  name        String
-  description String
-  price       Int
-  stock       Int
-  imageUrl    String?
-  storeId     String
-  store       Store    @relation(fields: [storeId], references: [id])
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id        String   @id @default(uuid())
+  name      String
+  price     Int
+  storeId   String
+  store     Store    @relation(fields: [storeId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Store {
-  id          String    @id @default(uuid())
-  name        String
-  description String
-  address     String
-  phone       String?
-  email       String?
-  imageUrl    String?
-  products    Product[]
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
+  id        String    @id @default(uuid())
+  name      String
+  products  Product[]
+  userId    String?
+  user      User?     @relation(fields: [userId], references: [id])
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
 }
