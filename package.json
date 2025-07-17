@@ -3,12 +3,15 @@
   "module": "src/server.ts",
   "type": "module",
   "scripts": {
-    "dev": "bun run src/server.ts"
+    "dev": "bun run src/server.ts",
+    "format": "bunx prettier . --write"
   },
   "private": true,
   "devDependencies": {
+    "@types/bcryptjs": "^3.0.0",
     "@types/bun": "latest",
-    "@types/express": "^5.0.3"
+    "@types/express": "^5.0.3",
+    "prettier": "3.6.2"
   },
   "peerDependencies": {
     "typescript": "^5"

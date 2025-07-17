@@ -4,6 +4,24 @@ Content-Type: application/json
 
 {
   "name": "John Doe",
-  "email": "john@gmail.com",
-  "password": "123456"
+  "email": "johnyys@gmail.com",
+  "password": "123456",
+  "accessName": "Vendedor"
 }
+
+### (Exemplo: Criar um acesso para um vendedor)
+POST http://localhost:3333/access
+Content-Type: application/json
+
+{
+  "name": "Vendedor"
+}
+
+
+### (Exemplo: Listar todos os acessos)
+GET http://localhost:3333/accesses  
+Content-Type: application/json
+
+### (Exemplo: Deletar vários usuários)
+DELETE http://localhost:3333/deleteManyUsers
+Content-Type: application/json
